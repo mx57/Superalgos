@@ -1,4 +1,4 @@
-function newGobernanceReportsSpace() {
+function newGovernanceReportsSpace() {
     const MODULE_NAME = 'Reports Space'
 
     let thisObject = {
@@ -15,6 +15,7 @@ function newGobernanceReportsSpace() {
         claims: undefined,
         votes: undefined,
         staking: undefined,
+        liquidity: undefined,
         delegations: undefined,
         github: undefined,
         airdrop: undefined,
@@ -23,15 +24,18 @@ function newGobernanceReportsSpace() {
         features: undefined,
         positions: undefined,
         mining: undefined,
+        computing: undefined,
         tablesSortingOrders: undefined,
         commandInterface: undefined,
+        /**@type {CsvExportFunction} */ csvExport: undefined,
         changeTableSortingOrder,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
         finalize: finalize,
         initialize: initialize,
-        reset: reset
+        reset: reset,
+        exportCsv: exportCsv,
     }
 
     let browserResizedEventSubscriptionId
@@ -45,6 +49,8 @@ function newGobernanceReportsSpace() {
     function finalize() {
 
         if (isInitialized === false) { return }
+
+        hidAppDiv()
 
         thisObject.container.finalize()
         thisObject.container = undefined
@@ -89,6 +95,9 @@ function newGobernanceReportsSpace() {
         thisObject.staking.finalize()
         thisObject.staking = undefined
 
+        thisObject.liquidity.finalize()
+        thisObject.liquidity = undefined
+
         thisObject.delegation.finalize()
         thisObject.delegation = undefined
 
@@ -113,18 +122,24 @@ function newGobernanceReportsSpace() {
         thisObject.mining.finalize()
         thisObject.mining = undefined
 
+        thisObject.computing.finalize()
+        thisObject.computing = undefined
+
         thisObject.commandInterface.finalize()
         thisObject.commandInterface = undefined
+
+        thisObject.csvExport.finalize()
+        thisObject.csvExport = undefined
 
         isInitialized = false
     }
 
     function initialize() {
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the initialize Function
         */
-        let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (resultsArary.length === 0) { return }
+        let governanceProject = UI.projects.workspaces.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        if (governanceProject === undefined) { return }
 
         thisObject.container = newContainer()
         thisObject.container.name = MODULE_NAME
@@ -148,6 +163,7 @@ function newGobernanceReportsSpace() {
         thisObject.claims = newGovernanceReportsClaims()
         thisObject.votes = newGovernanceReportsVotes()
         thisObject.staking = newGovernanceReportsStaking()
+        thisObject.liquidity = newGovernanceReportsLiquidity()
         thisObject.delegation = newGovernanceReportsDelegation()
         thisObject.github = newGovernanceReportsGithub()
         thisObject.airdrop = newGovernanceReportsAirdrop()
@@ -156,6 +172,8 @@ function newGobernanceReportsSpace() {
         thisObject.features = newGovernanceReportsFeatures()
         thisObject.positions = newGovernanceReportsPositions()
         thisObject.mining = newGovernanceReportsMining()
+        thisObject.computing = newGovernanceReportsComputing()
+        thisObject.csvExport = newGovernanceReportsCsvExport()
 
         thisObject.commandInterface.initialize()
         thisObject.reportsPage.initialize()
@@ -169,6 +187,7 @@ function newGobernanceReportsSpace() {
         thisObject.claims.initialize()
         thisObject.votes.initialize()
         thisObject.staking.initialize()
+        thisObject.liquidity.initialize()
         thisObject.delegation.initialize()
         thisObject.github.initialize()
         thisObject.airdrop.initialize()
@@ -177,6 +196,8 @@ function newGobernanceReportsSpace() {
         thisObject.features.initialize()
         thisObject.positions.initialize()
         thisObject.mining.initialize()
+        thisObject.computing.initialize()
+        thisObject.csvExport.initialize()
 
         setupSidePanelTab()
 
@@ -215,22 +236,38 @@ function newGobernanceReportsSpace() {
         if (isInitialized === false) { return }
 
         docsAppDivPhysics()
+    }
 
-        function docsAppDivPhysics() {
-            let docsSpaceDiv = document.getElementById('governance-reports-space-div')
-            docsAppDivPosition = {
-                x: 0,
-                y: 0
-            }
-            docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
-            docsSpaceDiv.style = '   ' +
-                'overflow-y: scroll;' +
-                'overflow-x: hidden;' +
-                'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
-                'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
-                'width: ' + thisObject.container.frame.width + 'px;' +
-                'height: ' + thisObject.container.frame.height + 'px'
+    function docsAppDivPhysics() {
+        let docsSpaceDiv = document.getElementById('governance-reports-space-div')
+        docsAppDivPosition = {
+            x: 0,
+            y: 0
         }
+        docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
+        docsSpaceDiv.style = '   ' +
+            'overflow-y: scroll;' +
+            'overflow-x: hidden;' +
+            'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
+            'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
+            'width: ' + thisObject.container.frame.width + 'px;' +
+            'height: ' + thisObject.container.frame.height + 'px'
+    }
+
+    function hidAppDiv() {
+        let docsSpaceDiv = document.getElementById('governance-reports-space-div')
+        docsAppDivPosition = {
+            x: 100000000000,
+            y: 0
+        }
+        docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
+        docsSpaceDiv.style = '   ' +
+            'overflow-y: scroll;' +
+            'overflow-x: hidden;' +
+            'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
+            'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
+            'width: ' + thisObject.container.frame.width + 'px;' +
+            'height: ' + thisObject.container.frame.height + 'px'
     }
 
     function getContainer(point, purpose) {
@@ -334,5 +371,33 @@ function newGobernanceReportsSpace() {
                 browserCanvasContext.stroke()
             }
         }
+    }
+
+    function exportCsv() {
+        let records = thisObject.csvExport.asCsv(UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile'))
+
+        let dataRows = records.userProfiles.join('\n')
+        dataRows += '\n\nAssets\n'
+        dataRows += records.assets.join('\n')
+        dataRows += '\n\nFeatures\n'
+        dataRows += records.features.join('\n')
+        dataRows += '\n\nPools\n'
+        dataRows += records.pools.join('\n')
+        dataRows += '\n\nPositions\n'
+        dataRows += records.positions.join('\n')
+        
+        const blob = new Blob([dataRows], { type: 'text/csv' })
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.setAttribute('href', url)
+        const now = new Date();
+        const filename = 'governance-report-' 
+            + now.getFullYear() 
+            + '-' 
+            + (now.getMonth() + 1)
+            + '-' 
+            + now.getDate() + '.csv'
+        a.setAttribute('download', filename)
+        a.click()
     }
 }

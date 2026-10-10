@@ -4,39 +4,58 @@
         {
             "action": "Add UI Object",
             "label": "Add Network",
-            "relatedUiObject": "Network",
-            "actionFunction": "payload.executeAction"
-        },
-        {
-            "action": "Add UI Object",
-            "label": "Add Tutorial",
-            "relatedUiObject": "Tutorial",
-            "actionFunction": "payload.executeAction"
+            "translationKey": "add.network",
+            "relatedUiObject": "LAN Network",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Plugins",
+            "translationKey": "add.plugins",
             "relatedUiObject": "Plugins",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Community-Plugins"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Crypto Ecosystem",
+            "translationKey": "add.cryptoEcosystem",
+            "disableIfPropertyIsDefined": true,
+            "relatedUiObject": "Crypto Ecosystem",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add APIs",
+            "translationKey": "add.apis",
             "relatedUiObject": "APIs",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add API Map",
+            "translationKey": "add.apiMap",
             "relatedUiObject": "API Map",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

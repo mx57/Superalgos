@@ -6,46 +6,64 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "session",
             "label": "Add Backtesting Session",
+            "translationKey": "add.session.backTesting",
             "relatedUiObject": "Backtesting Session",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "session",
             "label": "Add Live Trading Session",
+            "translationKey": "add.session.liveTrading",
             "relatedUiObject": "Live Trading Session",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "session",
             "label": "Add Forward Testing Session",
+            "translationKey": "add.session.forwardTrading",
             "relatedUiObject": "Forward Testing Session",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "session",
             "label": "Add Paper Trading Session",
+            "translationKey": "add.session.paperTrading",
             "relatedUiObject": "Paper Trading Session",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "executionStartedEvent",
             "label": "Add Execution Started Event",
+            "translationKey": "add.execution.event.started",
             "relatedUiObject": "Execution Started Event",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

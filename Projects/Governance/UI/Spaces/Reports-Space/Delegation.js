@@ -65,7 +65,7 @@ function newGovernanceReportsDelegation() {
         /*
         Here we get from the workspace all User Profiles.
         */
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         Transform the result array into table records.
         */
@@ -77,6 +77,7 @@ function newGovernanceReportsDelegation() {
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
             if (program.payload[programPropertyName] === undefined) { continue }
+            if (program.payload[programPropertyName].bonus === undefined) { continue }
 
             let tableRecord = {
                 "name": userProfile.name,

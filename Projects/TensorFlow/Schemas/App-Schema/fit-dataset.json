@@ -3,37 +3,56 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "datasetArgs",
+            "label": "Add Dataset Args",
+            "translationKey": "add.datasetArgs",
+            "relatedUiObject": "Dataset Args",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "verbose",
             "label": "Add Verbose",
+            "translationKey": "add.verbose",
             "relatedUiObject": "Verbose",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "epochs",
             "label": "Add Epochs",
+            "translationKey": "add.epochs",
             "relatedUiObject": "Epochs",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "callbacks",
             "label": "Add Callbacks",
+            "translationKey": "add.callbacks",
             "relatedUiObject": "Callbacks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -46,6 +65,11 @@
     },
     "propertyNameAtParent": "fitDataset",
     "childrenNodesProperties": [
+        {
+            "name": "datasetArgs",
+            "type": "node",
+            "childType": "Dataset Args"
+        },
         {
             "name": "verbose",
             "type": "node",

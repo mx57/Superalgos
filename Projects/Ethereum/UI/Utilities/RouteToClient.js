@@ -42,8 +42,8 @@ function newEthereumUtilitiesRouteToClient() {
             return
         }
 
-        let networkNodeConfig = JSON.parse(networkClient.payload.referenceParent.config)
-        let url = 'http://' + networkNodeConfig.host + ':' + networkNodeConfig.webPort + '/' + 'WEB3'
+        let lanNetworkNodeConfig = JSON.parse(networkClient.payload.referenceParent.config)
+        let url = 'http://' + lanNetworkNodeConfig.host + ':' + lanNetworkNodeConfig.webPort + '/' + 'WEB3'
 
         return {
             params: params,
@@ -51,3 +51,5 @@ function newEthereumUtilitiesRouteToClient() {
         }
     }
 }
+
+exports.newEthereumUtilitiesRouteToClient = newEthereumUtilitiesRouteToClient
