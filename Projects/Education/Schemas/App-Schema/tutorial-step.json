@@ -3,16 +3,18 @@
     "menuItems": [
         {
             "action": "Play Tutorial Step",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "label": "Play",
+            "translationKey": "general.play",
             "iconPathOn": "play",
             "iconPathOff": "play",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Resume Tutorial Step",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "label": "Resume",
+            "translationKey": "general.resume",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
             "actionFunction": "payload.executeAction"
@@ -21,15 +23,18 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
