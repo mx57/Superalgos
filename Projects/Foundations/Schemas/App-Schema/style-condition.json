@@ -24,6 +24,7 @@
             "action": "Edit",
             "actionFunction": "uiObject.codeEditor.activate",
             "label": "Edit",
+            "translationKey": "general.edit",
             "iconPathOn": "javascript-code",
             "iconPathOff": "javascript-code"
         },
@@ -33,14 +34,20 @@
             "propertyToCheckFor": "style",
             "actionFunction": "payload.executeAction",
             "label": "Add Style",
-            "relatedUiObject": "Style"
+            "translationKey": "add.style",
+            "relatedUiObject": "Style",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }
