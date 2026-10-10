@@ -4,36 +4,63 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Install Product",
+            "label": "Install Product",
+            "translationKey": "install.product",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
+            "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
+            "relatedUiObject": "Product Definition",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        
+        {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "record",
             "label": "Add Record Definition",
+            "translationKey": "add.recordDefinition",
             "relatedUiObject": "Record Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Dataset Definition",
+            "translationKey": "add.datasetDefinition",
             "relatedUiObject": "Dataset Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add Missing Children",
             "label": "Add Missing Items",
+            "translationKey": "add.missing.items",
             "relatedUiObject": "Calculations Procedure",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -52,7 +79,7 @@
         "compatibleTypes": "->Plotter Module->"
     },
     "attachingRules": {
-        "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
+        "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Study Bot->Portfolio Bot->Trading Bot->Learning Bot->Product Definition Folder->"
     },
     "childrenNodesProperties": [
         {

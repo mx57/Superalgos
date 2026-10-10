@@ -20,11 +20,9 @@ function newFoundationsUtilitiesGitBranches() {
                 branchLabel = 'Plugins-Docs'
                 break
             }
-            case 'next-version': {
-                branchLabel = 'Next-Version'
-                break
-            }
         }
         return branchLabel 
     }    
 }
+
+exports.newFoundationsUtilitiesGitBranches = newFoundationsUtilitiesGitBranches

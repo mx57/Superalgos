@@ -4,14 +4,29 @@
         {
             "action": "Add UI Object",
             "label": "Add Record Property",
+            "translationKey": "add.recordProperty",
             "relatedUiObject": "Record Property",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Install API Response Field Refs",
+            "label": "Install API Response Field Refs",
+            "translationKey": "install.apiResponseFieldRefs",
+            "relatedUiObject": "API Response Field Reference",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Data-Mining",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
